@@ -1,0 +1,162 @@
+﻿
+@{
+    ViewBag.Title = "ProductInsert";
+    Layout = "~/Views/Shared/_Admin_layout.cshtml";
+    IEnumerable<SelectListItem> cl = ViewData["catlist"] as IEnumerable<SelectListItem>;
+    IEnumerable<SelectListItem> ml = ViewData["suplist"] as IEnumerable<SelectListItem>;
+
+}
+
+<div class="portlet box green ">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="fa fa-gift"></i> Ürün Giriş Formu
+        </div>
+        <div class="tools">
+            <a href="" class="collapse">
+            </a>
+            <a href="#portlet-config" data-toggle="modal" class="config">
+            </a>
+            <a href="" class="reload">
+            </a>
+            <a href="" class="remove">
+            </a>
+        </div>
+    </div>
+    <div class="portlet-body form">
+        <form class="form-horizontal" role="form" action="/Admin/ProductInsert" method="post" enctype="multipart/form-data">
+            <div class="form-body">
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Marka</label>
+
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Ürün Adı</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control input-lg" placeholder="Ürün Adı Giriniz." name="ProductName" >
+                    </div>
+                </div>
+                <div class="form-group">
+        <label class="col-md-3 control-label">Fiyatı</label>
+        <div class="col-md-9">
+            <input type="text" class="form-control input-lg" placeholder="Fiyat Giriniz" name="Price" required>
+        </div>
+            </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Kategori</label>
+                    <div class="col-md-9">
+
+                        @Html.DropDownList("Categoryıd", cl, "seçiniz", new { @required = "required", @class = "form-control input-lg" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Marka</label>
+                    <div class="col-md-9">
+
+
+                        @Html.DropDownList("SupplierID", ml, "seçiniz", new { @required = "required", @class = "form-control input-lg" })
+                    </div>
+                </div>
+                <div class="form-group">
+                        <label class="col-md-3 control-label">Stok</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control input-lg" placeholder="Stok Adedi Giriniz." name="Stock" required onkeypress="return numberonly(this, event);">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">İndirim</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control input-lg" placeholder="İndirim Oranını Giriniz." name="Discount" required onkeypress="return numberonly(this, event);">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Durum</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control input-lg" placeholder="Durum" name="Status" required onkeypress="return numberonly(this, event);">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Anahtar Kelimeler</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control input-lg" placeholder="Anahtar Kelimeler" name="Keywords">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Hacim</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control input-lg" placeholder="Hacim" name="VolumetricWeightValue" required onkeypress="return numberonly(this, event);">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Kdv</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control input-lg" placeholder="Kdv" name="VatNumber" required onkeypress="return numberonly(this, event);">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Buna Bakanlar</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control input-lg" placeholder="Bakılanlar" name="OthersSee">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Notlar</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control input-lg" placeholder="Notlar" name="Notes">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Resimler</label>
+                        <div class="col-md-9">
+                            <input type="file" class="form-control input-lg" placeholder="Resimler" name="PhotoPath" required>
+                        </div>
+                    </div>
+
+
+
+            </div>
+            <div class="form-actions right1">
+                <button type="button" class="btn default">Cancel</button>
+                <button type="submit" class="btn green">Kaydet</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    /sadece rakam girilmesi gereken alanı kontrol eden fonksiyon
+    function numberonly(myfield, e, dec) {
+        var key;
+        var keychar;
+
+        if (window.event)
+            key = window.event.keyCode;
+        else if (e)
+            key = e.which;
+        else
+            return true;
+        keychar = String.fromCharCode(key);
+
+        // control keys
+        if ((key == null) || (key == 0) || (key == 8) ||
+            (key == 9) || (key == 13) || (key == 27))
+            return true;
+
+        // numbers
+        else if ((("0123456789").indexOf(keychar) > -1))
+            return true;
+
+        // decimal point jump
+        else if (dec && (keychar == ".")) {
+            myfield.form.elements[dec].focus();
+            alert("Lütfen sadece rakam giriniz.");
+            return false;
+        }
+        else {
+            alert("Lütfen sadece rakam giriniz.");
+            return false;
+        }
+    }
+
+</script>
+

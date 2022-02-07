@@ -1,0 +1,92 @@
+﻿
+@{
+    ViewBag.Title = "SupplierInsert";
+    Layout = "~/Views/Shared/_Admin_layout.cshtml";
+}
+
+
+<div class="portlet box green ">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="fa fa-gift"></i> Ürün Giriş Formu
+        </div>
+        <div class="tools">
+            <a href="" class="collapse">
+            </a>
+            <a href="#portlet-config" data-toggle="modal" class="config">
+            </a>
+            <a href="" class="reload">
+            </a>
+            <a href="" class="remove">
+            </a>
+        </div>
+    </div>
+    <div class="portlet-body form">
+        <form class="form-horizontal" role="form" action="/Admin/SupplierInsert" method="post" enctype="multipart/form-data">
+            <div class="form-body">
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Marka</label>
+
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Marka Adı</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control input-lg" placeholder="Marka Adı Giriniz." name="BrandName">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Resimler</label>
+                    <div class="col-md-9">
+                        <input type="file" class="form-control input-lg" placeholder="Resimler" name="PhotoPath" required>
+                    </div>
+                </div>
+
+
+
+            </div>
+            <div class="form-actions right1">
+                <button type="button" class="btn default">Cancel</button>
+                <button type="submit" class="btn green">Kaydet</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    /sadece rakam girilmesi gereken alanı kontrol eden fonksiyon
+    function numberonly(myfield, e, dec) {
+        var key;
+        var keychar;
+
+        if (window.event)
+            key = window.event.keyCode;
+        else if (e)
+            key = e.which;
+        else
+            return true;
+        keychar = String.fromCharCode(key);
+
+        // control keys
+        if ((key == null) || (key == 0) || (key == 8) ||
+            (key == 9) || (key == 13) || (key == 27))
+            return true;
+
+        // numbers
+        else if ((("0123456789").indexOf(keychar) > -1))
+            return true;
+
+        // decimal point jump
+        else if (dec && (keychar == ".")) {
+            myfield.form.elements[dec].focus();
+            alert("Lütfen sadece rakam giriniz.");
+            return false;
+        }
+        else {
+            alert("Lütfen sadece rakam giriniz.");
+            return false;
+        }
+    }
+
+</script>
+
+

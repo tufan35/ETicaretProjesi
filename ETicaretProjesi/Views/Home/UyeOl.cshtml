@@ -1,0 +1,91 @@
+﻿
+@{
+    ViewBag.Title = "UyeO";
+    Layout = "~/Views/Shared/default_layout.cshtml";
+}
+
+
+<div id="sp-breadcrumb-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-12" id="sp-breadcrumb">
+                <div class="sp-column ">
+                    <div class="sp-module ">
+                        <div class="sp-module-content">
+                            <ul class="breadcrumb">
+                                <li><i class="fa fa-home"></i></li>
+                                <li class="active"><a href="checkout.html#">Üye Ol</a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="loging-areas">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-2 col-lg-2"></div>
+            <div class="col-sm-12 col-md-8 col-lg-8">
+                <div class="login-users" style="background-color:orange">
+                    <form action="/Home/UyeOl" id="com-form-login" method="post">
+                        <fieldset class="userdata content">
+                            <h2>ÜYE KAYDI </h2>
+                            <ul class="form-list">
+                                <li>
+                                    <label class="required"><em>*</em>E-mail:</label>
+                                    <div class="input-box">
+                                        <input type="email" placeholder="Email" class="inputbox" name="email" style="width:725px;height:32px">
+                                    </div>
+                                </li>
+                                <li>
+                                    <label class="required"><em>*</em>Password:</label>
+                                    <div class="input-box" id="com-form-login-password">
+                                        <input type="password" placeholder="Password" class="inputbox" name="password">
+                                    </div>
+                                </li>
+                                <li>
+                                    <label class="required"><em>*</em>Adı ve Soyadı:</label>
+                                    <div class="input-box" id="com-form-login-password">
+                                        <input type="text" placeholder="Adınızı ve Soyadınızı Giriniz" class="inputbox" name="namesurname">
+                                    </div>
+                                </li>
+                                <li>
+                                    <label class="required"><em>*</em>Telefon Numarası:</label>
+                                    <div class="input-box" id="com-form-login-password">
+                                        <input type="text" placeholder="Telefon Numarası Giriniz" class="inputbox" name="telephone" maxlength="11">
+                                    </div>
+                                </li>
+                                <li>
+                                    <label class="required"><em>*</em>Fatura Adres:</label>
+                                    <div class="input-box" id="com-form-login-password">
+                                        <input type="text" placeholder="Adres Giriniz" class="inputbox" name="invoiceaddress" style="height:100px">
+                                    </div>
+                                </li>
+                                <li>
+                                    <div><img src="/Home/captcha" alt="Alternate Text" style="width:60px ; height:40px"  /></div>
+                                    <div>
+                                        <label class="required"><em>*</em>Güvenlik Rakamı Giriniz</label>
+                                        <br />
+                                        <div class="input-box" id="com-form-login-password">
+                                            <input type="text" placeholder="Doğrulama" class="inputbox" name="txtcaptcha" style="width:155px" required maxlength="5">
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </fieldset>
+                        <div class="buttons-set">
+                            <input type="submit" value="Giriş Yap" class="vina-button" name="Submit">
+                            
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

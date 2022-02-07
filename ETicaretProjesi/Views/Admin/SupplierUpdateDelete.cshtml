@@ -1,0 +1,39 @@
+﻿@using ETicaretProjesi.Models
+@model List<Suppliers>
+@{
+    ViewBag.Title = "SupplierUpdateDelete";
+    Layout = "~/Views/Shared/_Admin_layout.cshtml";
+}
+
+
+<br />
+<br />
+<br />
+<br />
+<br />
+
+
+
+<table class="table table-dark table-hover">
+
+    <tr>
+        <th>ID</th>
+        <th colspan="2">MARKA ADI</th>
+        <th>RESİM</th>
+        
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr class="table-secondary">
+            <td>@item.SupplierID</td>
+            <td>@item.BrandName</td>
+            <td><img src="~/Content/resimler/@item.Photopath" alt="Alternate Text" style="width:100px;height:50px;" /></td>
+            <td><a href="/Admin/SupplierUpdate/@item.SupplierID" class="btn btn-primary">GÜNCELLE</a></td>
+            <td><a href="/Admin/SupplierDelete/@item.SupplierID" onclick="return confirm('Kayit Silinsin mi?')" class=" btn btn-danger">SİL</a></td>
+        </tr>
+    }
+
+</table>
+

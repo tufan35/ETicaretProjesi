@@ -1,0 +1,152 @@
+﻿
+<div class="header-top">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-3 col-lg-3">
+                <div class="logo-area">
+                    <a href="index.html"><img src="/Content/img/logo.png" alt="logo" /> </a>
+                    @if (@Session["namesurname"] ==null)
+                    {
+                        <span style="background-color:black">@Session["namesurname"]</span>
+                    }
+
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-9 col-lg-9">
+                <div class="top-nav-area">
+                    <ul>
+
+
+                        <li>
+                            <a href="@Url.Action("EnYeniUrunler","Home")">
+                                <i class="fa fa-inbox"></i>
+                                <div class="nav-select">
+                                    <div class="text_menu">
+                                        EN YENİLER
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("OzelUrunler","Home")">
+                                <i class="fa fa-spinner"></i>
+                                <div class="nav-select">
+                                    <div class="text_menu">
+                                        OZELLER
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("IndirimliUrunler","Home")">
+                                <i class="fa fa-level-down"></i>
+                                <div class="nav-select">
+                                    <div class="text_menu">
+                                        EN ÇOK İNDİRİM
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("OneCikanUrunler","Home")">
+                                <i class="fa fa-hand-rock-o"></i>
+                                <div class="nav-select">
+                                    <div class="text_menu">
+                                        ÖNE ÇIKANLAR
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("CokSatanUrunler","Home")">
+                                <i class="fa fa-sellsy"></i>
+                                <div class="nav-select">
+                                    <div class="text_menu">
+                                        ÇOK SATANLAR
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Siparisler","Home")">
+                                <i class="fa fa-bomb"></i>
+                                <div class="nav-select">
+                                    <div class="text_menu">
+                                        SİPARİŞLERİM
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+
+
+
+
+
+                        @*<li>
+            <a href="index.html#">
+                <i class="fa fa-user"></i>
+                <div class="nav-select">
+                    <div class="text_menu">
+                        My Account
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="wishlist.html">
+                <i class="fa fa-heart-o"></i>
+                <div class="nav-select">
+                    <div class="text_menu">
+                        My Wishlist
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="checkout.html">
+                <i class="fa fa-exchange"></i>
+                <div class="nav-select">
+                    <div class="text_menu">
+                        Checkout
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="login.html">
+                <i class="fa fa-key"></i>
+                <div class="nav-select">
+                    <div class="text_menu">
+                        log in
+                    </div>
+                </div>
+            </a>
+        </li>*@
+                        <li>
+                            <a href="@Url.Action("Cart","Home")">
+                                <div class="cart_area">
+                                    <i class="fa fa-shopping-cart"></i>
+                                    <div class="nav-select">
+                                        <div class="text_menu">
+                                            SEPETİM
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="cart-sub">
+                                <div class="all-cart">
+                                    <p>1x <a href="index.html#">Sollicitudin Rhoncus</a> <span>$150.00</span> </p>
+                                    <p>2x <a href="index.html#">Sollicitudin Rhoncus</a> <span>$600.00</span> </p>
+                                </div>
+                                <h3>3 product<span>Total <span>$1350.00</span></span></h3>
+                                <div class="sub-button">
+                                    <a href="@Url.Action("Cart","Home")">Sepet Sayfasına Git</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

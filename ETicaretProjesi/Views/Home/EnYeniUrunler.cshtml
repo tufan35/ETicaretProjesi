@@ -1,0 +1,107 @@
+﻿@model ETicaretProjesi.MVVM.AnasayfaModel
+@{
+    ViewBag.Title = "EnYeniUrunler";
+    Layout = "~/Views/Shared/default_layout.cshtml";
+}
+<!-- Shop area start  -->
+<div class="shop-wrapper">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <div class="shop--right">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12 col-lg-12">
+                            <hr>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="singl-shop ">
+                            <div class="partial_urunler">
+                                @foreach (var item in Model.EnYeniUrunler)
+                                {
+                                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+                                        <div class="sp-single">
+                                            <div class="sp-img-area">
+                                                <img class="first-img" src="~/Content/resimler/@item.PhotoPath" alt="" style="height:150px" />
+                                                <img class="hover-img" src="/Content/resimler/@item.PhotoPath" alt="" style="height:150px" />
+                                                <div class="quick-view-detail">
+                                                    <a href="/Home/Detaylar/@item.ProductID">Detaylar</a>
+                                                </div>
+                                                <div class="sp-label-pro sp-label-pro-hot" style="background-color:#68B10C">YENI</div>
+                                            </div>
+                                            <div class="sp-info-area">
+                                                <h2 class="product-name"><a title="@item.ProductName" href="/Home/Sepet/@item.ProductID">@item.ProductName</a></h2>
+
+                                                <p class="all-prices">
+                                                    <span class="sp-price main-price">@item.Price TL</span>
+                                                </p>
+                                                <div class="sp-button">
+                                                    <div class="s-button">
+                                                        <a href="/Home/Sepet/@item.ProductID" data-toggle="tooltip" data-placement="top" title="Sepete Ekle" class="black-tooltip add-to-cart all_src_icon"> <i class="fa fa-shopping-cart"></i> </a>
+                                                    </div>
+                                                    <div class="s-button">
+                                                        <i class="">.</i>
+                                                    </div>
+                                                    <div class="s-button last-b ">
+                                                        <a href="/Home/Detaylar/@item.ProductID" data-toggle="tooltip" data-placement="top" title="Detaylar" class="black-tooltip add-to-cart all_src_icon"> <i class="fa fa-eye"></i> </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+
+                        <div class="clear"></div>
+                        <div class="col-sm-12 col-md-12 col-lg-12">
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+<div id="loadmore">
+    <div class="s-poraduct-botton">
+        <input type="submit" name="name" value="Daha Fazla Urun" />
+    </div>
+</div>
+
+<input type="hidden" id="sayfano" name="sayfano" value="0" />
+
+<script>
+
+    $(document).on("click", "#loadmore", function () {
+
+        var sayfano = parseInt($("#sayfano").val())
+        var sonrakisayfam = sayfano + 1;
+        $.ajax({
+            type: "GET",
+            url: "/Home/_partial_EnYeniUrunler",
+            data: { sonrakisayfa: sonrakisayfam },
+            async: true,
+            processData: true,
+            cache: true,
+            success: function (result) {
+
+                $("#partial_urunler").append(result)
+                $("#sayfano").val(+sonrakisayfam)
+
+            }
+        })
+        
+
+    })
+
+
+
+
+</script>
+
+
+<!-- Shop area End  -->

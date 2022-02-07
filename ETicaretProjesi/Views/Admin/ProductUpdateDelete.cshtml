@@ -1,0 +1,74 @@
+﻿@using ETicaretProjesi.Models
+@model List<vw_aktif_urunler> 
+@{
+    ViewBag.Title = "ProductUpdateDelete";
+    Layout = "~/Views/Shared/_Admin_layout.cshtml";
+}
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<label style="background-color:blue">SLİDER</label>
+<label style="background-color:yellowgreen">ÖZEL</label>
+<label style="background-color:lightseagreen">SÜPER</label>
+<label style="background-color: lightcoral">GÜNÜN ÜRÜNÜ</label>
+
+
+<table class="table table-dark table-hover">
+  
+    <tr>
+        <th>ID</th>
+        <th colspan="2">URUN ADI</th>
+        <th>FİYAT</th>
+        <th>KATEGORİ</th>
+        <th>MARKA</th>
+        <th>STOK</th>
+        <th>İNDİRİM</th>
+        <th>KDV</th>
+        <th>DURUM</th>
+        
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr class="table-secondary">
+            <td>@item.ProductID</td>
+            <td>@item.ProductName</td>
+            <td><img src="~/Content/resimler/@item.PhotoPath" alt="Alternate Text"  style="width:50px;height:50px;"/></td>
+            <td>@item.Price</td>
+            <td>@item.CategoryName</td>
+            <td>@item.BrandName</td>
+            <td>@item.Stock</td>
+            <td>@item.Discount</td>
+            <td>@item.VatNumber</td>
+            <td>
+                @if (@item.Status == 2)
+                {
+                    <label style="background-color:blue">2</label>
+                }
+                else if (@item.Status == 3)
+                {
+                    <label style="background-color:yellowgreen ">3</label>
+                }
+                else if (@item.Status == 4)
+                {
+                    <label style="background-color:lightseagreen">4</label>
+                }
+                else if (@item.Status == 1)
+                {
+                    <label style="background-color:lightcoral">1</label>
+                }
+                else
+                {
+                    <label style="background-color:grey">5</label>
+                }
+
+            </td>
+            <td><a href="/Admin/ProductUpdate/@item.ProductID" class="btn btn-primary">GÜNCELLE</a></td>
+            <td><a href="/Admin/ProductDelete/@item.ProductID" onclick="return confirm('Kayit Silinsin mi?')" class=" btn btn-danger">SİL</a></td>
+        </tr>
+    }
+
+</table>

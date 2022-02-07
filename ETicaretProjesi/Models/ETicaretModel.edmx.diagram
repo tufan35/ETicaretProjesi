@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="46fe4dcf15c146899375821ff040c2c1" Name="Diagram1">
+        <EntityTypeShape EntityType="ETicaretDBModel.Categories" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ETicaretDBModel.Users" Width="1.5" PointX="5.375" PointY="3.75" />
+        <EntityTypeShape EntityType="ETicaretDBModel.vw_aktif_urunler" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="ETicaretDBModel.Products" Width="1.5" PointX="7.375" PointY="0.75" />
+        <EntityTypeShape EntityType="ETicaretDBModel.vw_kategoriler" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="ETicaretDBModel.Suppliers" Width="1.5" PointX="3.375" PointY="0.75" />
+        <EntityTypeShape EntityType="ETicaretDBModel.vw_suppliers" Width="1.5" PointX="3.375" PointY="7.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

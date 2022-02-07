@@ -1,0 +1,59 @@
+﻿
+@{
+    ViewBag.Title = "CategoryInsert";
+    Layout = "~/Views/Shared/_Admin_layout.cshtml";
+    IEnumerable<SelectListItem> cl = ViewData["catlist"] as IEnumerable<SelectListItem>;
+}
+
+
+<div class="portlet box purple ">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="fa fa-gift"></i> Kategori Giriş Formu
+        </div>
+        <div class="tools">
+            <a href="" class="collapse">
+            </a>
+            <a href="#portlet-config" data-toggle="modal" class="config">
+            </a>
+            <a href="" class="reload">
+            </a>
+            <a href="" class="remove">
+            </a>
+        </div>
+    </div>
+    <div class="portlet-body form">
+        <form class="form-horizontal" role="form" action="/Admin/CategoryInsert" method="post">
+            <div class="form-body">
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Kategori</label>
+                    <div class="col-md-9">
+                       
+                        @Html.DropDownList("Categoryıd",cl,"Seçiniz", new { @class = "form-control input-lg" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Kategori Adı</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control input-lg" placeholder="Kategori Adı Giriniz" name="CategoryName" required maxlength="100">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Açıklama</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" placeholder="Default Input" name="Açıklama" required maxlength="100">
+                    </div>
+                </div>
+                
+
+
+
+            </div>
+            <div class="form-actions right1">
+                <button type="button" class="btn default">Cancel</button>
+                <button type="submit" class="btn green">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>

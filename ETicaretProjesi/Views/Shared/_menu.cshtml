@@ -1,0 +1,182 @@
+﻿@using ETicaretProjesi.Models
+@{
+    var CategoryList = ViewBag.CategoryList;
+}
+<div class="main-menu-area ">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-10 col-sm-8 col-md-3 col-lg-3">
+                <div class="menu-cat-area">
+                    <h3 class="nk-module-title"><span>KATEGORİLER</span></h3>
+                    <div class="nk-all-items" @*style="display:none"*@>
+                        <div class="sp-module-content">
+                            <!-- treeview -->
+                            <div class="vina-treeview-virtuemart" id="vina-treeview-virtuemart93">
+                                <ul class="level0 treeview">
+
+                                    @foreach (var item in CategoryList as List<Categories>)
+                                    {
+
+                                        if (item.ParentID == 0)
+                                        {
+                                            <li>
+                                                <a title="@item.CategoryName" href="@Url.Action("kategoriler/" + item.Categoryıd,"Home")" class="baby">
+                                                    <span class="catTitle ">@item.CategoryName</span>
+                                                </a>
+                                                @{
+                                                    //alt kategori var mi
+                                                    foreach (var subitem in CategoryList as List<Categories>)
+                                                    {
+                                                        if (item.Categoryıd == subitem.ParentID)
+                                                        {
+                                                            <ul class="sub-menu treeview">
+                                                                <li class="expandable">
+                                                                    
+                                                                        <a title="@subitem.CategoryName"   href="@Url.Action("kategoriler/" + item.Categoryıd,"Home")"  class="">
+                                                                            <span class="catTitle ">@subitem.CategoryName</span>
+                                                                        </a>
+                                                                  
+                                                                </li>
+                                                            </ul>
+                                                        }
+
+                                                    }
+                                                }
+                                            </li>
+                                        }
+
+
+
+
+                                    }
+
+
+
+
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-2 col-sm-3 col-md-9 col-lg-9">
+                <nav>
+                    <ul>
+                        <li class="active">
+                            <a href="@Url.Action("Index","Home")">&nbsp; Anasayfa</a>
+                            <div class="sp-dropdown-inner">
+                                <ul class="sp-dropdown-items">
+                                    <li class="sp-menu-item"><a href="index.html">Home 1</a></li>
+                                    <li class="sp-menu-item"><a href="index-2.html">Home 2</a></li>
+                                    <li class="sp-menu-item"><a href="index-3.html">Home 3</a></li>
+                                    <li class="sp-menu-item"><a href="index-4.html">Home 4</a></li>
+                                    <li class="sp-menu-item"><a href="index-5.html">Home 5</a></li>
+                                    <li class="sp-menu-item"><a href="index-6.html">Home 6</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li><a href="@Url.Action("DetayliArama","Home")">DETAYLI ARAMA</a></li>
+                        <li><a href="@Url.Action("Giris","Home")">GİRİŞ</a></li>
+                        <li><a href="@Url.Action("UyeOl","Home")">ÜYE OL</a></li>
+
+                        <li><a href="@Url.Action("Cikis","Home")">Çıkış Yap</a></li>
+                        <li><a href="@Url.Action("Hakkimizda","Home")">Hakkımızda</a></li>
+                        <li><a href="@Url.Action("Mesaj","Home")">Mesaj</a></li>
+                        @if (HttpContext.Current.Session["adminmi"] != null)
+                        {
+                            <li><a href="@Url.Action("Login","Admin")">ADMIN PANEL</a></li>
+                        }
+
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- main menu area end  -->
+<!-- mobile-menu-area start -->
+<div class="mobile-menu-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="mobile-menu">
+                    <nav id="dropdown">
+                        <ul>
+                            <li>
+                                <a href="index.html">Home</a>
+                                <ul>
+                                    <li><a href="index.html">Home 1</a></li>
+                                    <li><a href="index-2.html">Home 2</a></li>
+                                    <li><a href="index-3.html">Home 3</a></li>
+                                    <li><a href="index-4.html">Home 4</a></li>
+                                    <li><a href="index-5.html">Home 5</a></li>
+                                    <li><a href="index-6.html">Home 6</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="about-us.html">About Us</a></li>
+                            <li><a href="blog.html">Blog</a></li>
+                            <li><a href="portfolio.html">Portfolio</a></li>
+                            <li>
+                                <a href="index.html#">Pages</a>
+                                <ul>
+                                    <li><a href="blog-post.html">blog post page</a></li>
+                                    <li><a href="cart.html">cart page</a></li>
+                                    <li><a href="checkout.html">checkout page</a></li>
+                                    <li><a href="login.html">login page</a></li>
+                                    <li><a href="shop.html">shop page</a></li>
+                                    <li><a href="single-product.html">single product page</a></li>
+                                    <li><a href="wishlist.html">wishlist</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="corporate.html">Corporateing</a></li>
+                            <li><a href="contact.html">Contact Us</a></li>
+                            <li><a href="@Url.Action("Login","Admin")">Yönetim Paneli</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- mobile-menu-area end -->
+<!-- search area start  -->
+<div class="nk-search-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-0 col-sm-0 col-md-2 col-lg-3">
+            </div>
+            <div class="col-xs-0 col-sm-0 col-md-2 col-lg-1">
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+                <div class="nk-search">
+
+                    <div class="search_input">
+                        <input type="text" placeholder="Arama" style="width: 770px" />
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    
+    function getCurrentFileName() {
+        var pagepathName = window.location.pathname;
+       
+        if (pagepathName == "/Home/Index") {
+            pagepathName = "";
+        }
+        return pagepathName.substring(pagepathName.lastIndexOf("/") + 1);
+    }
+
+    if (getCurrentFileName() == "") {
+       $(".nk-all-items").css("display", "block")
+    }
+    else {
+       
+        $(".nk-all-items").css("display", "none")
+    }
+</script>
